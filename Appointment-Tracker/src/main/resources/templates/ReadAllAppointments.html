@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Appointments List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f9f9f9;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        thead {
+            background-color: #007bff;
+            color: white;
+        }
+        th, td {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tbody tr:hover {
+            background-color: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Appointment Records</h2>
+
+<h3 style=" color : green " th:text="${message}"></h3>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Appointment Date</th>
+        <th>Time</th>
+        <th>Type</th>
+        <th>Status</th>
+        <th>Patient Name</th>
+        <th>Mobile Number</th>
+        <th>Doctor Name</th>
+        <th>Description</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Example static data row. You can render rows dynamically using Thymeleaf or JavaScript -->
+    <tr th:each="appointment : ${appointments}">
+        <td th:text="${appointment.id}" ></td>
+        <td th:text="${appointment.appointmentDate}" ></td>
+        <td th:text="${appointment.appointmentTime}" ></td>
+        <td th:text="${appointment.appointmentType}" ></td>
+        <td th:text="${appointment.appointmentStatus}" ></td>
+        <td th:text="${appointment.patientName}" ></td>
+        <td th:text="${appointment.mobileNumber}" ></td>
+        <td th:text="${appointment.doctorName}" ></td>
+        <td th:text="${appointment.appointmentDescription}" ></td>
+        <td> <a th:href="@{/admin/deleteAppointment/{id}  (id=${appointment.id}) }">DELETE</a> </td>
+    </tr>
+    </tbody>
+</table>
+<br>
+<a href="home">DASHBOARD</a><br>
+</body>
+</html>

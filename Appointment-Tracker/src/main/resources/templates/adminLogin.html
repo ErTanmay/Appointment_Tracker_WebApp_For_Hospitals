@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>LOGIN PAGE</title>
+</head>
+<body>
+
+<h1>WELCOME TO ADMIN LOGIN PAGE</h1>
+
+<div th:if="${param.error}">
+    <h2 style=" color : red ">INVALID CREDENTIALS</h2>
+</div>
+
+<div th:if="${logout}">
+    <h2 style=" color : green ">YOU HAVE BEEN SUCCESSFULLY LOGOUT</h2>
+</div>
+
+
+<form action="/login" method = "post">
+    <input name = "username" type = "text" placeholder = "enter username" /><br/>
+    <input name = "password" type = "password" placeholder = "enter password" /><br/>
+    <br>
+    <button>LOGIN</button>
+</form>
+
+
+</body>
+</html>

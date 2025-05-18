@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Appointment Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+        form {
+            max-width: 500px;
+            margin: auto;
+        }
+        label {
+            display: block;
+            margin-top: 15px;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Appointment Form</h2>
+
+<h3 style=" color : green " th:text="${messageS}"></h3>
+<h3 style=" color : red " th:text="${messageF}"></h3>
+
+<form action="AddAppointments" method="post">
+    <label for="appointmentDate">Appointment Date:</label>
+    <input type="date" id="appointmentDate" name="appointmentDate" required>
+
+    <label for="appointmentTime">Appointment Time:</label>
+    <input type="time" id="appointmentTime" name="appointmentTime" required>
+
+    <label for="appointmentType">Appointment Type:</label>
+    <input type="text" id="appointmentType" name="appointmentType" placeholder="e.g., Checkup, Consultation" required>
+
+    <label for="appointmentStatus">Appointment Status:</label>
+    <select id="appointmentStatus" name="appointmentStatus" required>
+        <option value="">--Select Status--</option>
+        <option value="Scheduled">Scheduled</option>
+        <option value="Completed">Completed</option>
+        <option value="Cancelled">Cancelled</option>
+    </select>
+
+    <label for="patientName">Patient Name:</label>
+    <input type="text" id="patientName" name="patientName" required>
+
+    <label for="mobileNumber">Patient Mobile Number:</label>
+    <input type="text" id="mobileNumber" name="mobileNumber" required>
+
+    <label for="doctorName">Doctor Name:</label>
+    <input type="text" id="doctorName" name="doctorName" required>
+
+    <label for="appointmentDescription">Appointment Description:</label>
+    <textarea id="appointmentDescription" name="appointmentDescription" rows="4" placeholder="Describe the appointment..."></textarea>
+
+    <button type="submit">Submit</button>
+</form>
+<br>
+<a href="home">DASHBOARD</a><br>
+</body>
+</html>
